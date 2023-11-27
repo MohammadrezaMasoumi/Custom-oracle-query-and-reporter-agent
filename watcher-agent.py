@@ -6,10 +6,10 @@ import datetime
 import logging
 from multiprocessing import Process
 import os
-oracle_quary="select count(*) as errors,nvl(listagg(t.TASKNAME || ' - ' ||t.PACKAGENAME,','),' ') as description from efgdata.vw_odi_packeges_run t where t.deadline<sysdate and t.STATE<>0"
-oracle_user='efgdata'
-oracle_password='efgdata123'
-oracle_dwh='192.168.114.5/dwh'
+oracle_quary=""
+oracle_user=''
+oracle_password=''
+oracle_dwh=''
 
 #import dbconfig
 #def mattermost_push(url,message):
@@ -52,8 +52,7 @@ class Matterhook:
         :rtype: int or None
         """
         return self.status_code
-query_oracle="select count(*) as errors,nvl(listagg(t.TASKNAME || ' - ' ||t.PACKAGENAME,','),' ') as description from efgdata.vw_odi_packeges_run t where t.deadline<sysdate and t.STATE<>0"
-def ORCL_EXECUTER(quary=query_oracle,user="efgdata",password="efgdata123",dsn="192.168.114.5/dwh"):
+def ORCL_EXECUTER(quary=query_oracle,user="",password="",dsn=""):
     con = cx_Oracle.connect(user=user,password=password,dsn=dsn)
     cursor = con.cursor()
     cursor.execute(quary)
