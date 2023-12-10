@@ -79,7 +79,7 @@ while True:
     dict.update(text=json.dumps(ORACL_EXECUTER_OUTPUT))
     print("start sending webhook ")
     print(datetime.datetime.now(),ORACL_EXECUTER_OUTPUT,"=============") 
-    notify.post_message('https://chat.efarda.ir/hooks/5oeoi9qk638njm5ztbgfesxsna',dict)
+    notify.post_message('https://mattermost_hook',dict)
     print("webhook sent")
     print(datetime.datetime.now(),ORACL_EXECUTER_OUTPUT,"=============") 
    # print (ORACL_EXECUTER_OUTPUT)
